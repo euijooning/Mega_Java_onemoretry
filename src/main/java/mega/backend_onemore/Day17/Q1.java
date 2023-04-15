@@ -1,4 +1,4 @@
-package megait.backend_lecture.Day17;
+package mega.backend_onemore.Day17;
 /*
 올림픽 퀴즈
 한국 선수, 중국 선수, 미국 선수, 러시아 선수 출전

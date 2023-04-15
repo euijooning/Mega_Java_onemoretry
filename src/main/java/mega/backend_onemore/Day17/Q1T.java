@@ -1,4 +1,4 @@
-package megait.backend_lecture.Day17;
+package mega.backend_onemore.Day17;
 
 import java.util.Random;
 /*
