@@ -2,7 +2,8 @@ package mega.backend_onemore._inf.OOP.Inheritance;
 
 // 문제
 // 클래스 상속에서 메서드 오버라이딩에 대해서 설명하고 구현해보시오.
-// 이 문제는 상속에서 부모 클래스의 메서드를 자식이 오버라이딩해서 구현할 수 있는지를 묻는 문제이다.
+// 이 문제는 상속에서 부모 클래스의 메서드를
+// 자식이 오버라이딩해서 구현할 수 있는지를 묻는 문제이다.
 
 class Person04 {
   // Field
@@ -46,7 +47,8 @@ class Hero04 extends Person04 {
   }
 
   void displayPerson() {
-    System.out.println( "이름 : " + name  + ", 나이 : " + age + ", 성별 : " + gender + ", 파워 : " + power );
+    System.out.println
+    ( "이름 : " + name  + ", 나이 : " + age + ", 성별 : " + gender + ", 파워 : " + power );
   }
 }
 

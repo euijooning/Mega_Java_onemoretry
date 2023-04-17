@@ -45,7 +45,8 @@ class Hero03 extends Person03 {
   }
 
   void displayPerson() {
-    System.out.println( "이름 : " + name  + ", 나이 : " + age + ", 성별 : " + gender + ", 파워 : " + power );
+    System.out.println
+    ( "이름 : " + name  + ", 나이 : " + age + ", 성별 : " + gender + ", 파워 : " + power );
   }
 }
 
