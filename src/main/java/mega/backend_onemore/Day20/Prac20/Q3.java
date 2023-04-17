@@ -42,7 +42,7 @@ class Police{
 public class Q3 {
 
   public static void main(String[] args) {
-    // TODO Auto-generated method stub
+
     Random r = new Random();
     Police p = new Police();
     Human[] hlist = new Human[5];

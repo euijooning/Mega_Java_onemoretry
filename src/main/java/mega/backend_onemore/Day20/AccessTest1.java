@@ -21,8 +21,6 @@ class B{
   int b;
 }
 
-
-
 public class AccessTest1 {
 
   public static void main(String[] args) {
