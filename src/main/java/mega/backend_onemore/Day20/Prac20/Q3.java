@@ -15,13 +15,18 @@ import java.util.Scanner;
 
 마피아 일일이 잡기
  */
-class Human{
+/*
+시민과 경찰 클래스로 만들고,
+경찰이 질문하게 만드는 방식으로 만들면 된다.
+시민에 마피아가 있다.
+시민은 마피안지 아닌지 구별하는 변수가 있어서 마피아면 마피아인지 말하게 하면 된다.
+ */
+class Human{ // 마피아인지 아닌지만 판별하면 된다.
   boolean check; // 마피아 여부를 나타내는 변수
   Human(boolean check){
     this.check = check;
   }
   void print() {
-
     if(check) {
       System.out.println("네 제가 마피아 입니다.");
     }
@@ -34,7 +39,7 @@ class Human{
 class Police{
   Scanner sc = new Scanner(System.in);
   int input() {
-    System.out.print("마피아는?");
+    System.out.print("마피아는? > ");
     return sc.nextInt();
   }
 }
@@ -46,11 +51,11 @@ public class Q3 {
     Random r = new Random();
     Police p = new Police();
     Human[] hlist = new Human[5];
-    // Human 인스턴스를 저장할 배열 생성
+    // Human 인스턴스를 저장할 배열 생성 사람 수
 
-    int num = r.nextInt(5); //0~4
+    int num = r.nextInt(5); //0~4 마피아 지정 랜덤수
 
-    for(int i =0;i<hlist.length;i++) {
+    for(int i =0;i<hlist.length;i++) { // 반복문 돌면서 객체를 채워줌.
       if(i == num) {
         hlist[i] = new Human(true);
         // 난수와 인덱스가 같으면 해당 인스턴스를 마피아로 지정
@@ -61,13 +66,16 @@ public class Q3 {
       }
     }
 
+//    while (hlist[p.input()-1].check) 이거는 이상한 수가 들어오면 좀 거시기 하니까, 뺀다.
     while(true) {
       int pNum = p.input(); // 사용자로부터 입력 받은 번호
       if(pNum >0 && pNum <6) { // 1부터 5까지의 번호만 유효
-        hlist[pNum-1].print();
+
+        hlist[pNum-1].print(); // 말하게 하기
         //hlist가 들어가 있기 때문에 반드시
         // true 또는 false가 들어가 있을 것.
         // 해당 인덱스의 Human 인스턴스의 print() 메서드 호출
+
         if(hlist[pNum-1].check) {  // 해당 인스턴스가 마피아면
           break;
         }
