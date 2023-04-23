@@ -1,4 +1,4 @@
-package mega.backend_onemore.Day27;
+package mega.backend_onemore.Day27.Prac27;
 // 스타크래프트 문제
 /*
 나머지 클래스
