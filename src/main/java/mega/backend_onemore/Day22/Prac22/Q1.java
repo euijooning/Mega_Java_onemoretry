@@ -83,21 +83,21 @@ true문 나와서, 지우의 ball의  몬스터의 상태를 talk함.
 import java.util.Random;
 import java.util.Scanner;
 
-class PM{
+class PMon{
   String type;
   String color;
   String size;
 
-  PM(){
+  PMon(){
     // 생성자에서 랜덤으로 포켓몬 종류, 색, 크기를 정함
     // 객체 만들어질 때, 배치도 같이 해버리기 위함.(불릴 때 피카츄의 정체가 정해짐)
     Random r = new Random();
-    String[] m = {"피카츄","파이리","꼬부기","이상해씨"};
+    String[] name = {"피카츄","파이리","꼬부기","이상해씨"};
     String[] c = {"노란색","빨간색","파란색","초록색"};
     String[] s = {"대","중","소","미니"};
 
     // 랜덤수, 부를 때마다 한번씩 배치하는 메서드 호출해서 type, color, size에 저장.
-    type = m[r.nextInt(m.length)];
+    type = name[r.nextInt(name.length)];
     color = c[r.nextInt(c.length)];
     size = s[r.nextInt(s.length)];
 
@@ -111,24 +111,24 @@ class PM{
 }
 
 // 포켓몬 클래스 PM을 가지고 있는 포켓볼 클래스 PB 정의
-class PB{
-  PM m;
+class PBall{
+  PMon monster;
 }
 
 // 포켓볼을 가지고 있는 캐릭터 클래스 JW 정의
-class JW{
-  PB ball; //이렇게 되면 포켓볼 안에 포켓몬스터가 담기게 된다.
+class JiWoo{
+  PBall ball; //이렇게 되면 포켓볼 안에 포켓몬스터가 담기게 된다.
 }
 
 // 포켓볼 배열을 가지고 있는 오박사 클래스 Oh 정의
 // 오박사는 생성될 때 포캣볼 객체를 가지고 있어야 겠죠.
-class Oh{
-  PB[] bl = new PB[3];
+class DrOh{
+  PBall[] ball = new PBall[3];
 
 
-  Oh(){ // 생성자에서 포켓볼 3개를 만듦
-    for(int i = 0;i<bl.length;i++) {
-      bl[i] = new PB(); // 객체생성
+  DrOh(){ // 생성자에서 포켓볼 3개를 만듦
+    for(int i = 0;i<ball.length;i++) {
+      ball[i] = new PBall(); // 객체생성
       // 생성된 포켓볼에는 PM 인스턴스가 없으므로,
       // 이후 main에서 PM 인스턴스를 채워줌
       // main에서 포켓볼 넣어주고
@@ -143,31 +143,33 @@ public class Q1 {
   public static void main(String[] args) {
 
     Scanner sc = new Scanner(System.in);
-    PM p[] = new PM[3]; //3마리 채우고 오박사 주면 된다.
+    PMon poke[] = new PMon[3]; //3마리 채우고 오박사 주면 된다.
     // PM 클래스의 인스턴스를 담을 배열 생성
 
-    Oh o = new Oh(); // 오박사 클래스 인스턴스 생성
-    JW j = new JW(); // 지우 클래스 인스턴스 생성
+    DrOh oh = new DrOh(); // 오박사 클래스 인스턴스 생성
+    JiWoo jw = new JiWoo(); // 지우 클래스 인스턴스 생성
 
     // PM 인스턴스를 3개 생성하고,
     // 생성된 PM 인스턴스를 PB 인스턴스에 담아 포켓볼에 넣음
-    for(int i =0;i<p.length;i++) {
-      p[i] = new PM();
-      o.bl[i].m = p[i];
-      // 선생님이 고치십 부분에,
-      // 오박사가 가지고 있는 몬스터의 포켓볼에 바로 들어간다.
+    for (int i = 0; i < poke.length; i++) {
+      poke[i] = new PMon();
+      oh.ball[i].monster = poke[i];// 오박사가 가지고 있는 몬스터의 포켓볼에 바로 들어간다.
+      //오박사가 가지고 있는 포켓볼에 있는 포켓몬에 포켓몬이 들어간 것(채워진 것)
+      // 즉, 이 과정을 거치면 오박사 포켓몬볼에는 3마리 포켓몬이 다 차있게 될 것.
+
     }
 
-
     // 사용자에게 포켓볼을 선택하게 함
-    while(true) {
+    while (true) {
       System.out.println("1,2,3 중에 고르세요 : ");
       int num = sc.nextInt();
-      if(num == 1 || num == 2 || num == 3) {
-        j.ball = o.bl[num-1]; // -1은 1, 2, 3을 입력하므로 인덱스 맞추기
+      if (num == 1 || num == 2 || num == 3) {
+        jw.ball = oh.ball[num - 1]; // -1은 1, 2, 3을 입력하므로 인덱스 맞추기
         // ball을 줘야하는 이유는 지우가 볼 객체가 없다.
         // 지우 클래스 인스턴스의 ball 필드에
         // 선택된 포켓볼의 PB 인스턴스를 담음
+
+        // 즉 입력을 받아서 오박사의 포켓몬볼을 지우에게 넘겨주는 과정.
 
         break;
         /*
@@ -176,19 +178,18 @@ public class Q1 {
         해당 인덱스에 해당하는 PB 객체를 할당합니다.
         여기서 PB 객체는 PM 객체를 포함하고 있습니다.
          */
-      }
-      else {
+      } else {
         System.out.println("잘못된 입력입니다.");
         System.out.println("제대로 고르세요.");
       }
     }
 
-    j.ball.m.talk(); // 지우가 가지고 있는 포켓몬이 뭔지 말한다.
-
+    jw.ball.monster.talk(); // 지우가 가지고 있는 포켓볼의 포켓몬이 뭔지 말한다.
 
   }
 
 }
+
 /*
 프로그램의 실행 흐름
 <PM 클래스>
