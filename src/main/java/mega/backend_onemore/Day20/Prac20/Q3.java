@@ -78,7 +78,10 @@ public class Q3 {
         // true 또는 false가 들어가 있을 것.
         // 해당 인덱스의 Human 인스턴스의 print() 메서드 호출
 
-        if(humans[pNum-1].check) {  // 해당 인스턴스가 마피아면
+        if(humans[pNum-1].check) {  // 해당 인스턴스가 마피아면이 아니라 판단이 더 정확
+          // 여기서 check가 true인지 false인지를 어떻게 판단하냐?
+          // 위에서 human 객체를 만들 때, 랜덤으로 하나의 사람에만 true가 들어가게 세팅되었음.
+          // 그래서 여기서는 판단을 할 수 있게 됨.
           break;
         }
       }
