@@ -73,9 +73,7 @@ public class Q2_my {
         System.out.println("빼기 결과는 : " + ct1.minus(num1, num2));
         System.out.println("곱하기 결과는 : "+ ct1.multiply(num1, num2));
         System.out.println("나누기 결과는 : " + ct1.divide(num1, num2));
-
         break;
-
       }
       else if(select == 2) {
         System.out.print("첫 번째 숫자 입력 : ");
@@ -88,20 +86,17 @@ public class Q2_my {
         System.out.println("빼기 결과는 : " + ct2.minus(num3, num4));
         System.out.println("곱하기 결과는 : "+ ct2.multiply(num3, num4));
         System.out.println("나누기 결과는 : " + ct2.divide(num3, num4));
-
         break;
       }
       else if(select == 3) {
         System.out.println("종료합니다.");
-
         break;
       }
       else {
         System.out.println("잘못된 입력입니다.");
-        continue;
+
       }
     }
 
   }
-
 }

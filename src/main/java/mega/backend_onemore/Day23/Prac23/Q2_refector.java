@@ -22,10 +22,21 @@ main에서 연산이 되도록 구현해주세요.
 
 class Controll01 {
 // 아예 필드 다 빼버리고, 그냥 입력받는 값만 사용함.
+// 지금 필드랑 생성자가 아무 필요가 없음.
 
   int add(int num1, int num2) {
     return num1+num2;
   }
+  // 만약에 기존처럼 필드가 있었고
+  /*
+  int add() {
+    return a+b;
+  }
+  이렇게 만들면, 활용도가 매우 떨어짐.
+  항상 같은 결과를 내놓게 될 거니까,
+  의도한 바와 달라짐.
+  우리는 데이터를 사용자가 가져오게 만들고 싶어.
+   */
 
   int minus(int num1, int num2) {
     return num1-num2;
@@ -59,13 +70,16 @@ public class Q2_refector {
 
   public static void main(String[] args) {
 
-    Scanner sc = new Scanner(System.in);
-    Controll01 ct1 = new Controll01();
+    Scanner sc = new Scanner(System.in); // 스캐너는 딱 한번만 만들어지면 된다.
+    Controll01 ct = new Controll01(); // 받아올 인자가 필요없어짐.
+    // 왜냐하면, 값 계산할 때 어차피 숫자를 일일이 받으니까.
+    // 클래스는 Stateless니까 매번 state를 바꿔줄 필요는 없다.
 
-    int select;
-    while(true) {
+
+    int select; //태어나는 것만
+    while(true) { //제대로 입력이 됐는지 여부만 반복.
       System.out.println("1. 정수연산, 2. 실수연산, 3. 종료 ");
-      select = sc.nextInt();
+      select = sc.nextInt(); // 입력은 여기서 받는다.
       if (select == 1 || select == 2 || select == 3) {
         break;
       } else {
@@ -79,10 +93,10 @@ public class Q2_refector {
       System.out.print("두 번째 숫자 입력 : ");
       int num2 = sc.nextInt();
 
-      System.out.println("더하기 결과는 : " + ct1.add(num1,num2));
-      System.out.println("빼기 결과는 : " + ct1.minus(num1, num2));
-      System.out.println("곱하기 결과는 : " + ct1.multiply(num1, num2));
-      System.out.println("나누기 결과는 : " + ct1.divide(num1, num2));
+      System.out.println("더하기 결과는 : " + ct.add(num1,num2));
+      System.out.println("빼기 결과는 : " + ct.minus(num1, num2));
+      System.out.println("곱하기 결과는 : " + ct.multiply(num1, num2));
+      System.out.println("나누기 결과는 : " + ct.divide(num1, num2));
 
     } else if (select == 2) {
       System.out.print("첫 번째 숫자 입력 : ");
@@ -90,10 +104,10 @@ public class Q2_refector {
       System.out.print("두 번째 숫자 입력 : ");
       double num4 = sc.nextDouble();
 
-      System.out.println("더하기 결과는 : " + ct1.add(num3, num4));
-      System.out.println("빼기 결과는 : " + ct1.minus(num3, num4));
-      System.out.println("곱하기 결과는 : " + ct1.multiply(num3, num4));
-      System.out.println("나누기 결과는 : " + ct1.divide(num3, num4));
+      System.out.println("더하기 결과는 : " + ct.add(num3, num4));
+      System.out.println("빼기 결과는 : " + ct.minus(num3, num4));
+      System.out.println("곱하기 결과는 : " + ct.multiply(num3, num4));
+      System.out.println("나누기 결과는 : " + ct.divide(num3, num4));
     }
 
     else if(select == 3) {

@@ -135,9 +135,18 @@ class Mart {
   // 얘들만 신경쓰면 나머지는 바깥에서 해결을 해 줄것이다.
 
   // 시작점과 끝점을 받아서, 객체가 있는지 체크를 한 후
-  // 객체가 있으면 소비자에게 주고, 없으면 null을 보냄(못 사는 것)
+  // 객체가 있으면 소비자에게 주고(return c[i] 뭐 요런 식으로, 없으면 null을 보냄(못 사는 것)
+  // 즉, 최초로 나온 인덱스를 기억하고 있는 거예요.
+  //=> 지금 소비자에게 간 그 제품을 내가 기억하고 있겠다.
+  // 방금 소비자한테 간 것은 재고가 빠진 거니까 그걸 null처리 해줘야지.
+  // ref[index] = null; 이거 하려고 index를 넣은 것임.
+
 
   // 여기서는 객체가 넘어가야 하니까, 자료형이 Computer
+  // 이 Computer 반환타입은 클래스를 반환한다기보다 정확하게는 "객체"를 반환하는 것임.
+  // 명세서를 반환한 게 아니라 명세서를 보고 진짜 만들어진 결과물(객체)를 반환
+  // 즉, com[i]라는 것은 진짜 컴퓨터 한 대를 넘긴다는 것임.
+
   Computer sendComputer(int start, int end) { // 시작점과 끝점을 받아서
     // 삼성: start 0 , end 5(작다니까) // LG: start 5 , end 10
     for (int i = start; i < end; i++) { //이렇게 하면, 삼성send, LGsend 따로 만들 필요가 없음.
@@ -220,6 +229,13 @@ class Human {
       }
     }
   }
+  /*
+  send하고 차이점은,
+  얘는 컴퓨터를 받아와서 빈 자리에다가 넣어줘야 합니다.(자리가 비어있어야 합니다.)
+  외부에서 받아온 컴퓨터를 빈 자리에다가 세팅
+  즉, 직관적으로 해석하면, Computer 배열에서 i번째 위치에
+  누군진 모르지만 나를 부른 애가 넣어준 컴퓨터를 넣어주겠다.
+   */
 
   void recieveAirconditioner(Airconditioner aircon) {
     for (int i = 0; i < ac.length; i++) {
@@ -302,8 +318,15 @@ public class Q1 {
             if (brand == 1) { // <브랜드> 삼성 컴퓨터 선택
               if (hum[i].money >= 200) { // 금액이 충분한 경우
                 Computer computer = mart.sendComputer(0, 5);
+                /*
+                지금 재고가 있는 컴퓨터 중에서 가장 앞에 있는 컴퓨터를 computer 변수에 담은 거고
+                마트 입장에서 보면 이게 나간(팔린) 컴퓨터
+                소비자 입장애서 보면 들어온(구매한) 컴퓨터가 되는 것이다.
+                 */
                 if (computer == null) { // 객체가 없는 경우
                   System.out.println("삼성 컴퓨터가 모두 팔린 상태입니다.");
+
+                  // 여기가 사는 로직이 된다.
                 } else { // 물건(객체)도 있고 돈도 충분한 경우
                   hum[i].money -= computer.price; // 소비자가 보유한 금액 - 삼성 컴퓨터 가격
                   hum[i].receiveComputer(computer); // 컴퓨터를 소비자가 보유하게 하기

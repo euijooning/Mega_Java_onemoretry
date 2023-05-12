@@ -128,7 +128,7 @@ public class Q2_T2 {
         System.out.println("잘못된 입력입니다.");
       }
     }
-  }
 
+  }
 }
 
