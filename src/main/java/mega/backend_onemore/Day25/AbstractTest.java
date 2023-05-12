@@ -7,7 +7,7 @@ class C {
   }
 }
 
-abstract class A extends C{ // 추상화
+abstract class  A extends C{ // 추상화
   // 내가 추상클래스인데 부모클래스를 상속받는 것 당연히 가능. 근본이 클래스
   int a;
   void abc() {
