@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /*
+idea
 객체 있고 없고 여부를 나타내도록 수정, 클래스화 진행하지 않으면 전부 땡임.
 물고기의 역할 x
 낚시꾼 클래스 - 캐스팅, 이동 전부 가져간다.
@@ -24,6 +25,7 @@ import java.util.Scanner;
 /* cf. 알아두기
 자료형 타입 instance of 객체
  */
+
 class Fish { // 하는 거 없음. 객체 만들어서 배열에 들어가기만 하면 되기 때문.
 }
 
