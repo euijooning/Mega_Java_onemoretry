@@ -92,11 +92,8 @@ public class Q1_T {
         System.out.println("잘못된 입력입니다.");
       }
 
-
     }
 
-
   }
-
 }
 
