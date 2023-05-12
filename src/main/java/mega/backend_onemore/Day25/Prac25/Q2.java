@@ -2,6 +2,12 @@ package mega.backend_onemore.Day25.Prac25;
 /*
 마트게임 상속으로 변경 => 배열 10개만 담게끔 바꾸시면 됩니다.
  */
+/*
+이 경우를 보고 언제 클래스를 쓰고, 언제 인터페이스를 쓰면 좋을 지 판단 가능
+여기서는 필드까지 대부분 중복이 되므로,
+일일이 구현 다 해줘야 하는 인터페이스 대신에
+클래스로 두고 필드도 상속받아 쓰는 게 더 나은 선택.
+ */
 
 import java.util.Scanner;
 
@@ -64,7 +70,7 @@ class Ref implements Product {
   }
 }
 
-class AirCleaner implements Product{
+class AirCleaner implements Product  {
 
   String menu;
   int price;
@@ -199,7 +205,6 @@ class Human {
   void allPrint() {
     for (int i = 0; i < 10; i++) {
       if (pro[i] != null) {
-        pro[i].use();
       }
     }
   }
