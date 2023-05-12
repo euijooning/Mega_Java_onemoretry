@@ -22,6 +22,7 @@ import java.util.Scanner;
 시민은 마피안지 아닌지 구별하는 변수가 있어서 마피아면 마피아인지 말하게 하면 된다.
 아니면 시민이라고 하면 됨.
  */
+
 class Human{ // 마피아인지 아닌지만 판별하면 된다.
   boolean check; // 마피아 여부를 나타내는 변수
   Human(boolean check){
