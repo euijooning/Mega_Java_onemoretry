@@ -1,19 +1,5 @@
 package mega.backend_onemore.Day24.Prac24;
-/*
-<물담기 문제> 이건 클래스 배열 문제
-물 : 수량(속성) -private // get, set 활용
-사람 : 물의 객체를 담을 수 있는 배열 // get set 활용
 
-<main>
-물 배열 객체 30개 + 객체마다 수량을 랜덤으로 1~8 까지 채워줌
-물 객체 10개씩 사람에게 부여한다.
-
-사람 3명 1, 2, 3 중에서 물을 가장 많이 가지고 있는 사람은?
-이외는 잘못된 입력.
-제일 많이 마신 사람을 고르지 못하면 다시 선택하세요.
-
-마지막에 비교하면서 출력
- */
 
 import java.util.Random;
 import java.util.Scanner;

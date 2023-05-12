@@ -59,7 +59,7 @@ class BuKyeong extends Dino{
 
 public class Q3 {
 
-  static void talk(Dino dino) {
+  static void talk(Dino dino) { //Dino가 부모이므로 티라노고 뭐고 다 들어올 수 있음. 이게 상속의 장점.
     dino.print();
   }
 
