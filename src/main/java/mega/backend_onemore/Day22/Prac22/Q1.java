@@ -83,7 +83,7 @@ true문 나와서, 지우의 ball의  몬스터의 상태를 talk함.
 import java.util.Random;
 import java.util.Scanner;
 
-class PMon{
+class PMon {
   String type;
   String color;
   String size;
